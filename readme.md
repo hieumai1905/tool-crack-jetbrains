@@ -4,22 +4,27 @@
 - Tải và cài đặt IntelliJ IDEA từ trang chủ của JetBrains.
 
 ## Bước 2: Clone repository công cụ hỗ trợ kích hoạt
-- Tại thư mục `...\Program Files\JetBrains`, mở terminal và chạy lệnh sau để clone repo hỗ trợ kích hoạt:
+- Mở terminal tại nơi muốn lưu trữ file support(thường lưu ở nơi ít làm việc để được bảo toàn) và chạy lệnh sau để clone repo hỗ trợ kích hoạt:
     ```bash
     git clone https://github.com/hieumai1905/tool-crack-jetbrains.git
     ```
 
 ## Bước 3: Chỉnh sửa Custom VM Options
-- Truy cập vào file `idea64.exe.vmoptions` theo đường dẫn sau:
+- [WINDOWN] Truy cập vào file `idea64.exe.vmoptions` theo đường dẫn sau:
     ```bash
-    C:\Users\{user}\AppData\Roaming\JetBrains\IntelliJIdea2024.1\idea64.exe.vmoptions
+    C:\Users\{user}\AppData\Roaming\JetBrains\IntelliJIdeaVersion\idea64.exe.vmoptions
+    ```
+- [MAC] Truy cập vào file `idea.vmoptions` theo đường dẫn sau:
+    ```bash
+    /Users/{user}/Library/Application Support/JetBrains/IntelliJIdeaVersion/idea.vmoptions
     ```
 - Thêm 3 dòng code sau vào cuối file:
     ```bash
     --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
     --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
-    -javaagent:C:\Program Files\JetBrains\tool-crack-jetbrains\ja-netfilter.jar=jetbrains
+    -javaagent:{path}\tool-crack-jetbrains\ja-netfilter.jar=jetbrains
     ```
+    **path**: ở đây là đường dẫn folder chứa repo đã clone về
 
 ## Bước 4: Khởi động lại ứng dụng
 - Sau khi chỉnh sửa, khởi động lại IntelliJ IDEA.
